@@ -19,7 +19,7 @@ router.get('/api/spareParts', async (req, res) => {
 });
 'SELECT * FROM sparePart WHERE name = $1'
 
-router.get('/api/getOne/:aStock',  async (req, res) => {
+router.get('/api/getOne/Stock/:aStock',  async (req, res) => {
     let aStock = req.params.aStock;
     
   pool.query(
@@ -33,7 +33,7 @@ router.get('/api/getOne/:aStock',  async (req, res) => {
   )
 });
 
-router.get('/api/getOne/:aNumPart',  async (req, res) => {
+router.get('/api/getOne/NumPart/:aNumPart',  async (req, res) => {
   let aNumPart = req.params.aNumPart;
   
 pool.query(
