@@ -18,11 +18,11 @@ router.get('/api/spareParts', async (req, res) => {
 });
 'SELECT * FROM sparePart WHERE name = $1'
 
-router.get('/api/getOne/:aName',  async (req, res) => {
-    let aName = req.params.aName;
+router.get('/api/getOne/:aStock',  async (req, res) => {
+    let aStock = req.params.aStock;
     
   pool.query(
-    'SELECT * FROM sparePart WHERE name = $1',[aName],
+    'SELECT * FROM spare_part WHERE stock = $1',[aStock],
     (error, results) => {
       if (error) {
         throw error
