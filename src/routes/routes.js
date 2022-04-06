@@ -51,7 +51,7 @@ router.get('/api/getImages/:aStock', async (req, res) => {
    let aStock = req.params.aStock;
 
    pool.query(
-      'SELECT i.url, s.stock FROM images AS i JOIN spare_part AS s ON id_spare_part=s.stock WHERE s.stock= $1',
+      'SELECT i.url FROM images AS i JOIN spare_part AS s ON id_spare_part=s.stock WHERE s.stock= $1',
       [aStock],
       (error, results) => {
         if(error) {
