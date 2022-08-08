@@ -10,7 +10,7 @@ dotenv.config();
 const pool = new Pool({ connectionString: process.env.DATABASE_URL, ssl: {rejectUnauthorized: false}});
 
 router.get('/api/spareParts', async (req, res) => {
-    pool.query('SELECT * FROM sparePart ORDER BY id ASC', (error, results) => {
+    pool.query('SELECT * FROM spare_part ORDER BY sap ASC', (error, results) => {
         if (error) {
           throw error
         }
@@ -19,11 +19,11 @@ router.get('/api/spareParts', async (req, res) => {
 });
 'SELECT * FROM sparePart WHERE name = $1'
 
-router.get('/api/getOne/Stock/:aStock',  async (req, res) => {
-    let aStock = req.params.aStock;
+router.get('/api/getOne/:sap',  async (req, res) => {
+    let aSap = req.params.sap;
     
   pool.query(
-    'SELECT * FROM spare_part WHERE stock = $1',[aStock],
+    'SELECT * FROM spare_part WHERE sap = $1',[aSap],
     (error, results) => {
       if (error) {
         throw error
@@ -47,12 +47,12 @@ pool.query(
 )
 });
 
-router.get('/api/getImages/:aStock', async (req, res) => {
-   let aStock = req.params.aStock;
+router.get('/api/getImages/:sap', async (req, res) => {
+   let aSap = req.params.sap;
 
    pool.query(
-      'SELECT i.url FROM images AS i JOIN spare_part AS s ON id_spare_part=s.stock WHERE s.stock= $1',
-      [aStock],
+      'SELECT i.url FROM images AS i JOIN spare_part AS s ON id_spare_part=s.sap WHERE s.sap= $1',
+      [aSap],
       (error, results) => {
         if(error) {
           throw error
