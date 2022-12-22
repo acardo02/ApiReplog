@@ -7,10 +7,17 @@ const dotenv = require('dotenv');
 const req = require('express/lib/request');
 dotenv.config();
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL, ssl: {rejectUnauthorized: false}});
+const pool = new Pool( {
+  host: 'replog.c1etebwnhjvy.us-east-1.rds.amazonaws.com',
+  port: 5432,
+  database: 'replogdb',
+  user: 'postgres',
+  password: 'root1234',
+  ssl: { rejectUnauthorized: false}
+});
 
 router.get('/api/spareParts', async (req, res) => {
-    pool.query('SELECT * FROM spare_part ORDER BY sap ASC', (error, results) => {
+    pool.query('SELECT * FROM spare_parts ORDER BY sap ASC', (error, results) => {
         if (error) {
           throw error
         }
@@ -23,7 +30,7 @@ router.get('/api/getOne/:sap',  async (req, res) => {
     let aSap = req.params.sap;
     
   pool.query(
-    'SELECT * FROM spare_part WHERE sap = $1',[aSap],
+    'SELECT * FROM spare_parts WHERE sap = $1',[aSap],
     (error, results) => {
       if (error) {
         throw error
@@ -37,7 +44,7 @@ router.get('/api/getOne/NumPart/:aNumPart',  async (req, res) => {
   let aNumPart = req.params.aNumPart;
   
 pool.query(
-  'SELECT * FROM spare_part WHERE num_part = $1',[aNumPart],
+  'SELECT * FROM spare_parts WHERE num_part = $1',[aNumPart],
   (error, results) => {
     if (error) {
       throw error
@@ -62,4 +69,4 @@ router.get('/api/getImages/:sap', async (req, res) => {
    )
 })
 
-module.exports = router;
+module.exports = router;  
