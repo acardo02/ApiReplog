@@ -58,7 +58,7 @@ router.get('/api/getImages/:sap', async (req, res) => {
    let aSap = req.params.sap;
 
    pool.query(
-      'SELECT i.url FROM images AS i JOIN spare_part AS s ON id_spare_part=s.sap WHERE s.sap= $1',
+      'SELECT i.url FROM images AS i JOIN spare_parts AS s ON id_spare_part=s.sap WHERE s.sap= $1',
       [aSap],
       (error, results) => {
         if(error) {
