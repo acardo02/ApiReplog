@@ -8,7 +8,7 @@ const req = require('express/lib/request');
 dotenv.config();
 
 const pool = new Pool( {
-  host: 'replog.c1etebwnhjvy.us-east-1.rds.amazonaws.com',
+  host: 'replogdb.c1etebwnhjvy.us-east-1.rds.amazonaws.com',
   port: 5432,
   database: 'replogdb',
   user: 'postgres',
