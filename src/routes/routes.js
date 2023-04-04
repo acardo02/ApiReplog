@@ -8,11 +8,11 @@ const req = require('express/lib/request');
 dotenv.config();
 
 const pool = new Pool( {
-  host: 'replogdb.c1etebwnhjvy.us-east-1.rds.amazonaws.com',
+  host: 'dpg-cgljgk3h4hskd42asc60-a.frankfurt-postgres.render.com',
   port: 5432,
-  database: 'replogdb',
-  user: 'postgres',
-  password: 'root1234',
+  database: 'replog',
+  user: 'root',
+  password: '7zvwoqHHti4IqbO0SEm6tGAmfjXdJsZK',
   ssl: { rejectUnauthorized: false}
 });
 
