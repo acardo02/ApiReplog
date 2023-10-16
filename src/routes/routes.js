@@ -7,12 +7,13 @@ const dotenv = require('dotenv');
 const req = require('express/lib/request');
 dotenv.config();
 
+
 const pool = new Pool( {
-  host: 'dpg-ciqmjk5ph6ej5vhl01m0-a.oregon-postgres.render.com',
+  host: 'dpg-ckm9rniv7m0s7381elj0-a.oregon-postgres.render.com',
   port: 5432,
-  database: 'replog_sg68',
+  database: 'replog_e7zw',
   user: 'root',
-  password: '4WTmjm2rXCzuxBQVBysfh5twLQwOb1v3',
+  password: 'pNo4jlC4T6xfEybYRsR2rxqf6HUIcxuS',
   ssl: { rejectUnauthorized: false}
 });
 
