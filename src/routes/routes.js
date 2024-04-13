@@ -9,11 +9,11 @@ dotenv.config();
 
 
 const pool = new Pool( {
-  host: 'dpg-cmi01sfqd2ns73fvkm80-a.oregon-postgres.render.com',
+  host: 'dpg-codbph0l6cac73bh2ut0-a.oregon-postgres.render.com',
   port: 5432,
-  database: 'replog_kgff',
+  database: 'replog_m1q3',
   user: 'root',
-  password: 'ARzUTPMeh1MS9hZupYc03XNhMuvpusDW',
+  password: 'ueITmbAxPFmdA5GmSFU5k0xflJbQX3UQ',
   ssl: { rejectUnauthorized: false}
 });
 
